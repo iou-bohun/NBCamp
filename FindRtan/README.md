@@ -5,5 +5,7 @@
    * 같은 카드르 찾으면 성공!
 2. 구현
    * 게임 로직
-   * 광고기능 
+   * 광고기능   
+     ![image](https://github.com/iou-bohun/NBCamp/assets/56661597/8d8718a2-a0bb-4957-85ef-fa7978f5657d)
+
 
