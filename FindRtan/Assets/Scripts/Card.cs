@@ -5,8 +5,11 @@ using UnityEngine;
 public class Card : MonoBehaviour
 {
     public Animator anim;
+    public AudioClip flip;
+    public AudioSource audioSource;
     public void penCard()
     {
+       audioSource.PlayOneShot(flip);
         anim.SetBool("isOpen", true);
         transform.Find("Front").gameObject.SetActive(true);
         transform.Find("Back").gameObject.SetActive(false);

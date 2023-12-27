@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour
     public GameObject secondCard;
     public GameObject end;
 
+    public AudioClip match;
+    public AudioSource audioSource;
+
     private void Awake()
     {
         instance = this;
@@ -44,7 +47,7 @@ public class GameManager : MonoBehaviour
         time += Time.deltaTime;
         timeTxt.text = time.ToString("N2");
 
-        if(time > 30f)
+        if(time > 3f)
         {
             GameEnd();
         }
@@ -53,6 +56,7 @@ public class GameManager : MonoBehaviour
 
     public void isMatched()
     {
+        audioSource.PlayOneShot(match);
         string firstCardImage = firstCard.transform.Find("Front").GetComponent<SpriteRenderer>().sprite.name;
         string secondCardImage = secondCard.transform.Find("Front").GetComponent<SpriteRenderer>().sprite.name;
 
