@@ -57,13 +57,13 @@ namespace TextRpg
             Console.WriteLine();
             if(cursonNum == 1)
             {
-                Console.WriteLine("                                {0}1. 게임 시작", cusor);
-                Console.WriteLine("                                2. 새 게임");
+                Console.WriteLine("                                {0} 게임 시작", cusor);
+                Console.WriteLine("                                새 게임");
             }
             else
             {
-                Console.WriteLine("                                1. 게임 시작");
-                Console.WriteLine("                                {0}2. 새 게임", cusor);
+                Console.WriteLine("                                게임 시작");
+                Console.WriteLine("                                {0}새 게임", cusor);
             }
             do
             {
@@ -72,12 +72,12 @@ namespace TextRpg
                 {
                     case ConsoleKey.UpArrow:
                         Console.WriteLine("위");
-                        cursonNum++;
+                        cursonNum--;
                         if (cursonNum > 2) cursonNum = 2;
                         break;
                        case ConsoleKey.DownArrow:
                         Console.WriteLine("아래");
-                        cursonNum--;
+                        cursonNum++;
                         if (cursonNum < 1) cursonNum = 1;
                         break;
                     case ConsoleKey.Enter:
