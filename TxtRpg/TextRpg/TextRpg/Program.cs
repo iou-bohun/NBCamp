@@ -14,8 +14,11 @@ namespace TextRpg
         static List<Item> itemList;
         static List<Item> gottenItemList;
         static List<Item> equipedItemList;
+        static char cusor = '>';
+        static int cursonNum = 1;
         static void Main(string[] args)
         {
+            
             Player player = new Player();
             bank = new Bank();
             itemList = new List<Item>();
@@ -28,8 +31,9 @@ namespace TextRpg
         }
         static void StartScene(Player player)
         {
+            Console.Clear();
+            ConsoleKeyInfo c;
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("=========================================================================");
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine("           /\\                                                 /\\");
@@ -51,17 +55,42 @@ namespace TextRpg
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine();
-            Console.WriteLine("                                1. 게임 시작");
-            int nextAct = int.Parse(Console.ReadLine());
-            switch (nextAct)
+            if(cursonNum == 1)
             {
-                case 0:
-                    GameStart(player);
-                    break;
-                default:
-                    StartScene(player); 
-                    break;
+                Console.WriteLine("                                {0}1. 게임 시작", cusor);
+                Console.WriteLine("                                2. 새 게임");
             }
+            else
+            {
+                Console.WriteLine("                                1. 게임 시작");
+                Console.WriteLine("                                {0}2. 새 게임", cusor);
+            }
+            do
+            {
+                c = Console.ReadKey();
+                switch(c.Key)
+                {
+                    case ConsoleKey.UpArrow:
+                        Console.WriteLine("위");
+                        cursonNum++;
+                        if (cursonNum > 2) cursonNum = 2;
+                        break;
+                       case ConsoleKey.DownArrow:
+                        Console.WriteLine("아래");
+                        cursonNum--;
+                        if (cursonNum < 1) cursonNum = 1;
+                        break;
+                    case ConsoleKey.Enter:
+                        if(cursonNum == 1)
+                        {
+                            GameStart(player);
+                        }
+                        break;
+                }
+                StartScene(player);
+            } while(c.Key != ConsoleKey.Enter);
+
+            GameStart(player);
         }
         static void GameStart(Player player)
         {
