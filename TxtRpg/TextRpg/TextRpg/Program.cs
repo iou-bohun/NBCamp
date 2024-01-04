@@ -23,7 +23,45 @@ namespace TextRpg
             equipedItemList = new List<Item>();
             CreateItem();
             SceneNum sceneNum;
-            GameStart(player);
+            StartScene(player);
+            //GameStart(player);
+        }
+        static void StartScene(Player player)
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("=========================================================================");
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("           /\\                                                 /\\");
+            Console.WriteLine(" _         )( ______________________   ______________________ )(         _");
+            Console.WriteLine("(_)///////(**)______________________> <______________________(**)\\\\\\\\\\\\\\(_)");
+            Console.WriteLine("           )(                                                 )(");
+            Console.WriteLine("           \\/                                                 \\/");
+            Console.WriteLine();
+            Console.WriteLine("__________________________  ______________ ____________________  ________");
+            Console.WriteLine("\\__    ___/\\_   _____/\\   \\/  /\\__    ___/ \\______   \\______   \\/  _____/");
+            Console.WriteLine("  |    |    |    __)_  \\     /   |    |     |       _/|     ___/   \\  ___ ");
+            Console.WriteLine("  |    |    |        \\ /     \\   |    |     |    |   \\|    |   \\    \\_\\  \\");
+            Console.WriteLine("  |____|   /_______  //___/\\  \\  |____|     |____|_  /|____|    \\______  /");
+            Console.WriteLine("                   \\/       \\_/                    \\/                  \\/ ");
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("=========================================================================");
+            Console.ResetColor();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("                                1. 게임 시작");
+            int nextAct = int.Parse(Console.ReadLine());
+            switch (nextAct)
+            {
+                case 0:
+                    GameStart(player);
+                    break;
+                default:
+                    StartScene(player); 
+                    break;
+            }
         }
         static void GameStart(Player player)
         {
@@ -356,10 +394,10 @@ namespace TextRpg
                 if (item.index == nextAct)
                 {
                     bank.sellItem(item.cost);
-                    gottenItemList.Remove(item);
-                    equipedItemList.Remove(item);
                     item.isGotten = false;
                     item.isEquiped = false;
+                    gottenItemList.Remove(item);
+                    equipedItemList.Remove(item);
                 }
             }
             ItemSell(player);
