@@ -232,6 +232,7 @@ namespace TextRpg
             }
             Console.WriteLine();
             Console.WriteLine("1. 아이템 구매");
+            Console.WriteLine("2. 아이템 판매");
             Console.WriteLine("0. 나가기");
             Console.WriteLine();
             Console.WriteLine("원하시는 행동을 입력해주세요");
@@ -241,6 +242,9 @@ namespace TextRpg
             {
                 case 1:
                     ItemBuy(player);
+                    break;
+                case 2:
+                    ItemSell(player);
                     break;
                 case 0:
                     GameStart(player);
@@ -325,6 +329,43 @@ namespace TextRpg
                         break;
                 }
             }
+        }
+        static void ItemSell()
+        {
+            Console.Clear();
+            Console.WriteLine("판매하고 싶은 아이템을 선택해 주세요. ");
+            Console.WriteLine();
+            Console.WriteLine("[보유 골드]");
+            Console.WriteLine("{0} G", bank.Gold);
+            Console.WriteLine();
+            Console.WriteLine("[보유한 아이템 목록]");
+            for(int i = 0;i<gottenItemList.Count;i++)
+            {
+                Console.Write("{0}", i);
+                Console.WriteLine(" {0}    |{1} +{2} |{3}        |{4} ", gottenItemList[i].name, gottenItemList[i].status, gottenItemList[i].addStat, gottenItemList[i].description, gottenItemList[i].cost);
+            }
+            Console.WriteLine();
+            Console.WriteLine("0. 나가기");
+            Console.WriteLine();
+            Console.WriteLine("원하시는 행동을 입력해주세요");
+            Console.Write(">>");
+            int nextAct = int.Parse(Console.ReadLine());
+            if (nextAct == 0)
+            {
+                ShopScene(player);
+            }
+            foreach (Item item in gottenItemList)
+            {
+                if (item.index == nextAct)
+                {
+                    bank.sellItem(item.cost);
+                    gottenItemList.Remove(item);
+                    equipedItemList.Remove(item);
+                    item.isGotten = false;
+                    item.isEquiped = false;
+                }
+            }
+            ItemSell();
         }
 
         static void CreateItem()

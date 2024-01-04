@@ -26,5 +26,9 @@ namespace TextRpg
             Console.WriteLine("구매를 완료했습니다.");
             return true;    
         }
+        public void sellItem(int mount)
+        {
+            gold += mount * 0.8;
+        }
     }
 }

@@ -11,10 +11,11 @@ namespace TextRpg
         public int index = -1;
         public bool isGotten = false;
         public bool isEquiped = false;
-        public  string name;
+        public string name;
         public string status;
         public int addStat;
         public string description;
         public int cost;
     }
+
 }
