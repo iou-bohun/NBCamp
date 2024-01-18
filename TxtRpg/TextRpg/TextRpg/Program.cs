@@ -71,12 +71,11 @@ namespace TextRpg
                 switch(c.Key)
                 {
                     case ConsoleKey.UpArrow:
-                        Console.WriteLine("위");
                         cursonNum--;
                         if (cursonNum < 1) cursonNum = 1;
                         break;
                        case ConsoleKey.DownArrow:
-                        Console.WriteLine("아래");
+                        Console.Beep(262,400);
                         cursonNum++;
                         if (cursonNum > 2) cursonNum = 2;
                         break;
