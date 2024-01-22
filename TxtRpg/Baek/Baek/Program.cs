@@ -8,20 +8,32 @@ namespace Baek
         static void Main(string[] args)
         {
             Solution solution = new Solution();
-            string o = solution.solution("awogjsdf");
-            Console.WriteLine(o);
+            int[] o = solution.solution(3,12);
+            foreach (int i in o)
+            {
+                Console.WriteLine(i);
+            }
         } 
     }
     public class Solution
     {
-        public string solution(string s)
+        public int[] solution(int n, int m)
         {
-            string answer = "";
-            foreach(var item in s.ToCharArray().OrderByDescending(x=>x))
-            {
-                Console.WriteLine(item);
-            }
+            int[] answer = new int[2];
+            answer[0] = Gcd(n, m);
+            answer[1] = n*m/ Gcd(n, m);
             return answer;
+        }
+        public int Gcd(int a, int b)
+        {
+            if(a%b == 0)
+            {
+                return b;
+            }
+            else
+            {
+                return Gcd(b, a % b);
+            }
         }
     }
 }
