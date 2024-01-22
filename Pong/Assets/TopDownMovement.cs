@@ -18,9 +18,18 @@ public class TopDownMovement : MonoBehaviour
     {
         _controller.OnMoveEvent += Move;
     }
+    private void FixedUpdate()
+    {
+        ApplyMove(_movementDir);
+    }
     private void Move(Vector2 direction)
     {
         _movementDir = direction;
         Debug.Log("move");
+    }
+    private void ApplyMove(Vector2 dir)
+    {
+        dir = dir * 5;
+        rigid.velocity = dir;
     }
 }
