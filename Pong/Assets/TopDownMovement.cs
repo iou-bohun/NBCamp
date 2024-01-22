@@ -16,11 +16,16 @@ public class TopDownMovement : MonoBehaviour
     }
     private void Start()
     {
+        _controller.OnMoveEvent += Test;
         _controller.OnMoveEvent += Move;
     }
     private void FixedUpdate()
     {
         ApplyMove(_movementDir);
+    }
+    private void Test(Vector2 direction)
+    {
+        Debug.Log("Test");
     }
     private void Move(Vector2 direction)
     {

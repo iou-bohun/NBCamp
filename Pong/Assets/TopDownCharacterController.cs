@@ -15,4 +15,13 @@ public class TopDownCharacterController : MonoBehaviour
         }
         OnMoveEvent?.Invoke(direction);
     }
+
+    public void CallEvent(Vector2 dir)
+    {
+        if(OnMoveEvent == null)
+        {
+            Debug.Log("EventNull");
+        }
+        OnMoveEvent?.Invoke(dir);
+    }
 }
