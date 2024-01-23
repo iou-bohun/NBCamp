@@ -10,6 +10,10 @@ public class TopDownCharacterController : MonoBehaviour
 
     public void CallMoveEvent(Vector2 direction)
     {
+        if (OnMoveEvent == null)
+        {
+            Debug.Log("Null");
+        }
         OnMoveEvent?.Invoke(direction); 
     }
     public void CallLookEvent(Vector2 direction)

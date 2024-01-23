@@ -17,6 +17,7 @@ public class TopDownInputController : TopDownCharacterController
     {
         Vector2 direction = value.Get<Vector2>().normalized;
         CallMoveEvent(direction);
+        Debug.Log("WASD");
     }
     public void OnLook(InputValue value) //마우스의 ScreenPoin Position
     {

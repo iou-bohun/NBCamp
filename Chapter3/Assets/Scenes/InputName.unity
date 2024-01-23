@@ -1260,6 +1260,7 @@ GameObject:
   - component: {fileID: 2047362369}
   - component: {fileID: 2047362368}
   - component: {fileID: 2047362367}
+  - component: {fileID: 2047362370}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1329,7 +1330,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2047362368}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2047362370}
+        m_TargetAssemblyTypeName: SelectCharacterButton, Assembly-CSharp
+        m_MethodName: ChangeBtn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2047362368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1368,6 +1381,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2047362365}
   m_CullTransparentMesh: 1
+--- !u!114 &2047362370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2047362365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f57b0fe198168b944bcde935c6492b9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 4723107735738678597, guid: 77ba605bbd83f4448bc8683510c3155e, type: 3}
+  - {fileID: 21300000, guid: f2ed27d6c1c3ccc48959bcca269d88f0, type: 3}
+  toggle: 0
 --- !u!1 &2145830716
 GameObject:
   m_ObjectHideFlags: 0
